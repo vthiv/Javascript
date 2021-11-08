@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Array</title>
+    </head>
+    <body>
+        <form action = "" method="post" id="theForm">
+            <fieldset>
+                <div><input type="submit" value="Print fruits" id="submit"></div>
+                <div><label for="result">Output</label><textarea name="result" id="result" rows="4" disabled></textarea></div>
+            </fieldset>
+        </form>
+        <script>
+            // init () is called when the window is loaded.
+            window.onload = init;
+            
+            function init(){
+                'use strict';
+                
+                //init() adds an event listener to the form
+                document.getElementById('theForm').onsubmit = react;
+            }
+            
+            function react(){
+                'use strict';
+                
+                var fruits = [];
+                fruits[0] = 'Banana';
+                fruits[1] = 'Orange';
+                fruits[2] = 'Apple';
+                fruits[3] = 'Mango';
+                
+                var outputString = ' ';
+                for (var i = 0; i < fruits.length; i++){
+                    outputString += fruits[i] + '\n';
+                }
+                setOutput(outputString);
+                
+                return false;
+            }
+            function setOutput(outputString){
+                //Display the output in the text area
+                document.getElementById('result').value = outputString;
+            }
+        </script>
+    </body>
+</html>
